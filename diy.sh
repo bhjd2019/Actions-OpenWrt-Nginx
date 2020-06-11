@@ -48,6 +48,7 @@ echo -e "\q" | svn co https://github.com/coolsnowwolf/lede/trunk/package/lean fe
 #svn co https://github.com/openwrt/packages/branches/openwrt-19.07/libs/libdouble-conversion feeds/packages/libs/libdouble-conversion
 ./scripts/feeds update -a && ./scripts/feeds install -a
 cp -Rf ./diy/* ./
+sed -i s/'23552k(ubi),25600k@0x6c0000(firmware)'/'120832k(ubi),122880k@0x6c0000(firmware)'/ target/linux/ar71xx/image/legacy.mk
 sed -i 's/..\/..\/luci.mk/$(TOPDIR)\/feeds\/luci\/luci.mk/g' package/feeds/custom/*/Makefile
 
 rm -Rf package/*/*/qBittorrent/patches
